@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Dashboard from "./_components/Dashboard";
 
 /**
  * Boostrap
@@ -41,20 +40,26 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  dashboard,
+  users,
   children,
 }: {
+  dashboard: React.ReactNode;
+  users: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className="position-relative">
         <main className="container mt-5">
           <section className="row">
-            <section className="col-lg-5">
-              <Dashboard />
-            </section>
+            <section className="col-lg-5">{dashboard}</section>
 
-            <section className="col-lg-5">{children}</section>
+            <section className="col-lg-5">
+              <section className="vstack gap-2">
+                {users}
+              </section>
+            </section>
           </section>
         </main>
       </body>

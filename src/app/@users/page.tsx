@@ -1,8 +1,8 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
 import { Octokit } from "octokit";
-import UserPage from "./UserPage";
-import Loader from "./Loader";
+import UserPage from "../_components/UserPage";
+import Loader from "../_components/Loader";
 import { Spinner, Alert } from "react-bootstrap";
 
 import {

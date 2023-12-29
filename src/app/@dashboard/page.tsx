@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-const Dashboard = () => {
+const dash = () => {
   return (
     <section className="vstack gap-1">
       <section>
@@ -35,4 +35,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default dash;
