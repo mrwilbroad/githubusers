@@ -7,7 +7,7 @@
       <section className="card mt-3">
         <section className="card-body">
           <section className="d-flex gap-2">
-            <img
+            {/* <img
               style={{
                 height: "56px",
                 width: "56px",
@@ -15,7 +15,7 @@
               className="profile-pic rounded-circle"
               src={props.User.avatar_url}
               alt={props.User.login}
-            />
+            /> */}
 
             <section className="vstack gap-0">
               <h6 className="card-title m-0">{props.User.name}</h6>

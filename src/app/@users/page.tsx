@@ -4,7 +4,6 @@ import { Octokit } from "octokit";
 import UserPage from "../_components/UserPage";
 import Loader from "../_components/Loader";
 import { Spinner, Alert } from "react-bootstrap";
-
 import {
   Formik,
   Field,
@@ -15,10 +14,10 @@ import {
 } from "formik";
 import * as Yup from "yup";
 
-export const octokitInstance = new Octokit({
-  auth: process.env.GITHUB_AUTH_TOKEN!,
-});
 
+const octokitInstance = new Octokit({
+  auth: process.env.GITHUB_AUTH_TOKEN!,
+})
 const FetchUsers = async (username: string) => {
   const res = await octokitInstance.request("GET /users/{username}", {
     username: username,
@@ -32,7 +31,6 @@ const FetchUsers = async (username: string) => {
   throw new Error("something went wrong ...");
 };
 
-export type UserProps = Awaited<ReturnType<typeof FetchUsers>>;
 
 const SearchUser = () => {
   const [User, setUser] = useState<Awaited<
@@ -45,6 +43,7 @@ const SearchUser = () => {
   const validationscheme = Yup.object({
     username: Yup.string().required("Username is required!"),
   });
+
 
   const [show, setShow] = useState<{
     show: boolean;
@@ -67,7 +66,7 @@ const SearchUser = () => {
       .then((res) => {
         setUser(res);
       })
-      .catch((err) => {
+      .catch(() => {
         setUser(null);
         setShow({
           show: true,
@@ -79,7 +78,7 @@ const SearchUser = () => {
       });
   };
 
-  useEffect(() => {}, [Initialvalues, User]);
+  useEffect(() => {}, [User]);
 
   return (
     <section className="vstack gap-3">
